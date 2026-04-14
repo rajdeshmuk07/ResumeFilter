@@ -5,7 +5,7 @@ celery
 redis
 PyPDF2
 scikit-learn
-sentence-transformers
 gunicorn
 dj-database-url
 psycopg2-binary
+numpy
