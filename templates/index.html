@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Candidate Platform | Premium Recruitment</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <div class="container">
+        <header>
+            <h1>AI Candidate Platform</h1>
+            <p>Advanced Talent Scoring & Semantic Ranking Engine</p>
+        </header>
+
+        <main class="main-grid">
+            <!-- Sidebar / Upload -->
+            <aside class="upload-section">
+                <div class="glass-card">
+                    <h2 style="margin-bottom: 1rem; font-weight: 600;">Intelligence criteria</h2>
+                    <form id="uploadForm">
+                        <div class="input-group">
+                            <label for="name">Candidate Name</label>
+                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="job_description">Job Description</label>
+                            <textarea id="job_description" name="job_description" placeholder="Paste the role requirements here..." style="width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1rem; color: white; min-height: 80px; font-size: 0.9rem; outline: none; transition: border-color 0.3s;"></textarea>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="target_skills">Required Skills (Comma separated)</label>
+                            <input type="text" id="target_skills" name="target_skills" placeholder="e.g. Python, SQL, React">
+                        </div>
+                        
+                        <div class="drop-zone" id="dropZone">
+                            <i class="fas fa-file-pdf"></i>
+                            <p>Drag & Drop Resume (PDF)</p>
+                            <input type="file" id="fileInput" name="resume" accept=".pdf" style="display: none;" required>
+                        </div>
+
+                        <div class="progress-container" style="display: none; margin-bottom: 1.5rem;">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+
+                        <button type="submit" class="btn-primary">
+                            <span id="btnText">Initiate Analysis</span>
+                        </button>
+                    </form>
+                </div>
+            </aside>
+
+            <!-- Leaderboard & Console -->
+            <section class="leaderboard-section">
+                <div class="glass-card" style="margin-bottom: 2rem;">
+                    <div class="leaderboard-header">
+                        <h2 style="font-weight: 600;">Live Rankings</h2>
+                        <div class="live-indicator">
+                            <i class="fas fa-circle"></i> Live
+                        </div>
+                    </div>
+                    
+                    <div id="leaderboardBody" class="candidate-list">
+                        <div style="text-align: center; padding: 3rem; color: var(--text-secondary);">
+                            <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <p>Connecting to AI Engine...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intelligence Console -->
+                <div class="glass-card console-card">
+                    <div class="console-header">
+                        <span><i class="fas fa-terminal"></i> AI Analysis Console</span>
+                        <div class="console-dot-group">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                    <div id="consoleText" class="console-body">
+                        > Waiting for candidate selection...
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <style>
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+    </style>
+
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+
+django
+djangorestframework
+celery
+redis
+PyPDF2
+scikit-learn
+sentence-transformers
