@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: resumefilter
+    runtime: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn config.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: CELERY_BROKER_URL
+        value: "redis://red-cv9example:6379/0"
+
+  - type: redis
+    name: resumefilter-redis
+    plan: free
+    ipAllowList: []
